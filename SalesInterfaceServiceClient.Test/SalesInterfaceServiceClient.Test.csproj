@@ -59,7 +59,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\SalesInterfaceClient.csproj">
+    <ProjectReference Include="..\SalesInterfaceServiceClient\SalesInterfaceClient.csproj">
       <Project>{B2B36AAE-EE90-4ACE-940E-1D4EBC74DF0A}</Project>
       <Name>SalesInterfaceClient</Name>
     </ProjectReference>
