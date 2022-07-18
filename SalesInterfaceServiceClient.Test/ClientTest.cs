@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ServiceModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SalesInterfaceServiceClient.Test
@@ -7,43 +6,14 @@ namespace SalesInterfaceServiceClient.Test
     [TestClass]
     public class ClientTest
     {
-        // change this to your subscription key
-        private readonly string _subscriptionKey = "b5ec911e2a2d44b59c457f27a4eef142";
-        // change this to be url you wish to test against
-        private readonly string _url = "https://admiralty.azure-api.net/salesinterfaceservice-PREPROD";
-
         [TestMethod]
         public void TestMethod1()
         {
-            using (var client = CreateSapClient(_subscriptionKey, _url))
+            var sapClient = new SapClient();
+            using (var client = sapClient.CreateSapClient())
             {
                 CheckZSalesInterface(client);
             }
-        }
-
-        private z_sales_interfaceClient CreateSapClient(string subscriptionKey, string url)
-        {
-            var binding = CreateBasicHttpBinding();
-            var endpoint = new EndpointAddress(
-                new Uri(_url + "?subscription-key=" + subscriptionKey)
-            );
-
-            var client = new z_sales_interfaceClient(binding, endpoint);
-
-            return client;
-        }
-
-        /// <summary>
-        /// Creates the basic HTTP binding.
-        /// </summary>
-        /// <returns></returns>
-        /// <remarks></remarks>
-        private static BasicHttpBinding CreateBasicHttpBinding()
-        {
-            return new BasicHttpBinding
-            {
-                MaxReceivedMessageSize = int.MaxValue, Security = {Mode = BasicHttpSecurityMode.Transport}
-            };
         }
 
         private static void CheckZSalesInterface(z_sales_interfaceClient client)
