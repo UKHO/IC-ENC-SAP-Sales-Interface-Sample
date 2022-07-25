@@ -23,9 +23,9 @@ namespace SalesInterfaceServiceClient.Test
                 IM_ORDER = new ZSALES_ORDER()
                 {
                     GUID = Guid.NewGuid().ToString(),
-                    SERVICETYPE = "PAYS",
-                    REPTYPE = "ORDER",
-                    DOCTYPE = "ZPAY",
+                    SERVICETYPE = "ICE",
+                    REPTYPE = "1",
+                    DOCTYPE = "ZICE",
                     ACC = "21222",
                     UNIQORDID = Guid.NewGuid().ToString(),
                     SENDEMAIL = "sampleuser@someplace.com",
